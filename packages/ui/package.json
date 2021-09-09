@@ -19,7 +19,7 @@
     "build:js": "tsup --minify",
     "build:sd": "style-dictionary build --config ./sd.config.js",
     "dev": "tsup --watch src",
-    "test": "echo \"Skipped: no test specified\""
+    "test": "tsup src/theme/tokens/components/alert.ts"
   },
   "dependencies": {
     "lodash": "^4.17.21",
