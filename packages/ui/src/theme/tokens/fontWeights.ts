@@ -1,4 +1,6 @@
-module.exports = {
+import { FontWeights } from '../types/fontWeights';
+
+export const fontWeights: FontWeights = {
   hairline: { value: 100 },
   thin: { value: 200 },
   light: { value: 300 },

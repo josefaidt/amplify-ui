@@ -1,18 +1,15 @@
 import { createContext, ReactNode } from 'react';
+import { defaultTheme, AmplifyTheme, ThemeConfig } from '@aws-amplify/ui';
 
-import { defaultCSSVariables, defaultTheme, Theme } from '../../theming';
+// import { defaultCSSVariables } from '../../theming';
 
 interface AmplifyContextType {
-  components: Record<string, ReactNode>;
-  theming: {
-    theme: Theme;
-    CSSVariables?: {};
-  };
+  components?: Record<string, ReactNode>;
+  theme?: ThemeConfig;
 }
 export const AmplifyContext = createContext<AmplifyContextType>({
   components: undefined,
-  theming: {
-    theme: defaultTheme,
-    CSSVariables: defaultCSSVariables,
+  theme: {
+    tokens: defaultTheme,
   },
 });

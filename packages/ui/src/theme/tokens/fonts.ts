@@ -1,4 +1,6 @@
-module.exports = {
+import { Fonts } from '../types/fonts';
+
+export const fonts: Fonts = {
   default: {
     variable: {
       value: `'InterVariable', -apple-system, BlinkMacSystemFont,

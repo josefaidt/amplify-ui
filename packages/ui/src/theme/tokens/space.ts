@@ -1,4 +1,6 @@
-module.exports = {
+import { Space } from '../types/space';
+
+export const space: Space = {
   xxs: { value: '0.25rem' },
   xs: { value: '0.5rem' },
   small: { value: '0.75rem' },

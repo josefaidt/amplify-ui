@@ -9,6 +9,11 @@
   --amplify-components-icon-large-height: var(--amplify-font-sizes-xxl);
 }
 
+.dark {
+  --amplify-colors-font-primary: red;
+  // --amplify-components-heading-color: var(--amplify-colors-font-primary);
+}
+
 body {
   font-family: 'Inter var';
   background-color: var(--amplify-colors-background-secondary);
@@ -115,6 +120,7 @@ input[type='search'] {
   border-style: solid;
   padding: var(--amplify-space-small) var(--amplify-space-large);
   width: 30rem;
+  background-color: transparent;
   
   &:focus {
     outline: none;

@@ -26,12 +26,10 @@ export const strHasLength = (str: unknown): str is string =>
 
 export const usePropStyles = (props: ViewProps, style: any) => {
   const {
-    theme: {
-      breakpoints: {
-        values: breakpoints,
-        unit: breakpointUnit,
-        defaultBreakpoint,
-      },
+    breakpoints: {
+      values: breakpoints,
+      unit: breakpointUnit,
+      defaultBreakpoint,
     },
   } = useTheming();
 

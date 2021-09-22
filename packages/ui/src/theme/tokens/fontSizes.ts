@@ -1,4 +1,6 @@
-module.exports = {
+import { FontSizes } from '../types/fontSizes';
+
+export const fontSizes: FontSizes = {
   xs: { value: '0.75rem' },
   small: { value: '0.875rem' },
   medium: { value: '1rem' },

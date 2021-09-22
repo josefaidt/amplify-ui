@@ -1,15 +1,19 @@
 import merge from 'deepmerge';
-
-import { defaultTheme, defaultTokens } from './defaultTheming';
-import { DeepPartial, Theme, Tokens } from './types';
+import { AmplifyTheme } from '@aws-amplify/ui';
+import { defaultTheme } from './defaultTheming';
+import { DeepPartial } from './types';
 import { getCSSVariablesFromTokens, extendTokens } from './utils';
 
-export const extendTheming = (...allOverrideTokens: DeepPartial<Theme>[]) => {
-  const cloneTokens = { ...defaultTokens };
-  const overrideTokens = merge.all(allOverrideTokens) as DeepPartial<Theme>;
-  const newTokens = extendTokens(cloneTokens, overrideTokens) as Tokens;
-  // TODO: Need too scope the usage of this fuction because it is not used by React Native
+export const extendTheming = (
+  ...allOverrideTokens: DeepPartial<AmplifyTheme>[]
+) => {
+  const cloneTokens = { ...defaultTheme };
+  const overrideTokens = merge.all(
+    allOverrideTokens
+  ) as DeepPartial<AmplifyTheme>;
+  const newTokens = extendTokens(cloneTokens, overrideTokens) as AmplifyTheme;
+  // TODO: Need too scope the usage of this function because it is not used by React Native
   const CSSVariables = getCSSVariablesFromTokens(newTokens);
-  const theme = merge(defaultTheme, overrideTokens) as Theme;
+  const theme = merge(defaultTheme, overrideTokens) as AmplifyTheme;
   return { theme, CSSVariables };
 };

@@ -16,7 +16,8 @@
   color: var(--amplify-components-button-color);
   font-size: var(--amplify-components-button-font-size);
   line-height: var(--amplify-components-button-font-size);
-  padding: var(--amplify-components-button-padding);
+  padding: var(--amplify-components-button-padding-vertical)
+    var(--amplify-components-button-padding-horizontal);
 
   &:hover {
     background-color: var(--amplify-components-button-hover-background-color);

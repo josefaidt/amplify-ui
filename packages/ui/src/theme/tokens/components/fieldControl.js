@@ -3,7 +3,8 @@ module.exports = {
   borderColor: { value: '{colors.border.primary.value}' },
   borderWidth: { value: '{borderWidths.small.value}' },
   borderRadius: { value: '{radii.medium.value}' },
-  padding: { value: ['{space.xs.value}', '{space.medium.value}'] },
+  paddingVertical: { value: '{space.xs.value}' },
+  paddingHorizontal: { value: '{space.medium.value}' },
   fontSize: { value: '{components.field.fontSize.value}' },
   lineHeight: { value: '{lineHeights.medium.value}' },
   transitionDuration: { value: '{time.transition.medium.value}' },
@@ -14,12 +15,14 @@ module.exports = {
 
   small: {
     fontSize: { value: '{components.field.small.fontSize.value}' },
-    padding: { value: ['{space.xs.value}', '{space.small.value}'] },
+    paddingVertical: { value: '{space.xs.value}' },
+    paddingHorizontal: { value: '{space.small.value}' },
     lineHeight: { value: '{lineHeights.small.value}' },
   },
   large: {
     fontSize: { value: '{components.field.large.fontSize.value}' },
-    padding: { value: ['{space.medium.value}', '{space.large.value}'] },
+    paddingVertical: { value: '{space.medium.value}' },
+    paddingHorizontal: { value: '{space.large.value}' },
     lineHeight: { value: '{lineHeights.large.value}' },
   },
 

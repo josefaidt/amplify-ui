@@ -1,4 +1,6 @@
-module.exports = {
+import { Colors } from '../types/colors';
+
+export const colors: Colors = {
   red: {
     10: { value: 'hsl(0, 75%, 95%)' },
     20: { value: 'hsl(0, 75%, 85%)' },

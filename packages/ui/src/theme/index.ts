@@ -1,2 +1,3 @@
-export { default as theme } from './theme';
-export { default as tokens } from './tokens';
+export * from './types';
+export * from './tokens';
+export * from './createTheme';
