@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import * as React from 'react';
 
 import { ComponentClassNames } from '../shared/constants';
 import { useAmplifyFieldID } from '../shared/utils';
@@ -8,45 +7,88 @@ import { Flex } from '../Flex';
 import { FieldGroup } from '../FieldGroup';
 import { Input } from '../Input';
 import { Label } from '../Label';
-import { TextFieldProps } from '../types';
+import {
+  TextAreaFieldProps,
+  TextFieldProps,
+  TextInputFieldProps,
+} from '../types';
+import { Textarea } from '../Textarea';
+import { ChangeEventHandler } from 'react';
+import { isElementOfType } from 'react-dom/test-utils';
 
-export const TextField: React.FC<TextFieldProps> = ({
-  alignContent,
-  alignItems,
-  autoComplete,
-  className,
-  defaultValue,
-  descriptiveText,
-  direction = 'column',
-  errorMessage,
-  gap,
-  hasError = false,
-  id,
-  isDisabled,
-  isReadOnly,
-  isRequired,
-  justifyContent,
-  label,
-  labelHidden = false,
-  outerEndComponent,
-  outerStartComponent,
-  innerStartComponent,
-  innerEndComponent,
-  onChange,
-  onCopy,
-  onCut,
-  onInput,
-  onPaste,
-  onSelect,
-  onSubmit,
-  size,
-  testId,
-  type = 'text',
-  value,
-  wrap,
-  ...rest
-}) => {
+const isMultilineField = <ElementType,>(props: TextFieldProps<ElementType>) => {
+  return props.multiline;
+};
+
+export const TextField = <ElementType,>(props: TextFieldProps<ElementType>) => {
+  const {
+    alignContent,
+    alignItems,
+    autoComplete,
+    className,
+    defaultValue,
+    descriptiveText,
+    direction = 'column',
+    errorMessage,
+    gap,
+    hasError = false,
+    id,
+    isDisabled,
+    isReadOnly,
+    isRequired,
+    justifyContent,
+    label,
+    labelHidden = false,
+    outerEndComponent,
+    outerStartComponent,
+    innerStartComponent,
+    innerEndComponent,
+    multiline = false,
+    size,
+    testId,
+    type = 'text',
+    value,
+    wrap,
+    ...rest
+  } = props;
+
   const fieldId = useAmplifyFieldID(id);
+  let control = null;
+
+  if (isMultilineField(props)) {
+    control = (
+      <Textarea
+        autoComplete={autoComplete}
+        defaultValue={defaultValue}
+        hasError={hasError}
+        onChange={props.onChange}
+        onCopy={props.onCopy}
+        id={fieldId}
+        isDisabled={isDisabled}
+        isReadOnly={isReadOnly}
+        isRequired={isRequired}
+        size={size}
+        type={type}
+        value={value}
+        {...rest}
+      />
+    );
+  } else {
+    <Input
+      autoComplete={autoComplete}
+      defaultValue={defaultValue}
+      hasError={hasError}
+      id={fieldId}
+      isDisabled={isDisabled}
+      isReadOnly={isReadOnly}
+      isRequired={isRequired}
+      size={size}
+      type={type}
+      onChange={props.onChange}
+      value={value}
+      {...rest}
+    />;
+  }
 
   return (
     <Flex
@@ -77,26 +119,7 @@ export const TextField: React.FC<TextFieldProps> = ({
         innerStartComponent={innerStartComponent}
         innerEndComponent={innerEndComponent}
       >
-        <Input
-          autoComplete={autoComplete}
-          defaultValue={defaultValue}
-          hasError={hasError}
-          id={fieldId}
-          isDisabled={isDisabled}
-          isReadOnly={isReadOnly}
-          isRequired={isRequired}
-          onChange={onChange}
-          onCopy={onCopy}
-          onCut={onCut}
-          onInput={onInput}
-          onPaste={onPaste}
-          onSelect={onSelect}
-          onSubmit={onSubmit}
-          size={size}
-          type={type}
-          value={value}
-          {...rest}
-        />
+        {control}
       </FieldGroup>
       <FieldErrorMessage hasError={hasError} errorMessage={errorMessage} />
     </Flex>

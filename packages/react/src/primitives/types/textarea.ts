@@ -1,37 +1,22 @@
-import React from 'react';
-import { BaseComponentProps, AriaProps, Sizes } from './base';
+import * as React from 'react';
+import { Property } from 'csstype';
+
+import { Sizes } from './base';
 import { FieldVariations } from './field';
-import { BaseStyleProps } from './style';
+import { ViewProps } from './view';
 
-export type InputMode =
-  | 'none'
-  | 'text'
-  | 'decimal'
-  | 'numeric'
-  | 'tel'
-  | 'search'
-  | 'email'
-  | 'url';
+export interface TextareaStyleProps {
+  resize?: Property.Resize;
+}
 
-export interface InputProps<ElementType>
-  extends BaseComponentProps,
-    BaseStyleProps,
-    AriaProps {
+export interface TextareaProps<ElementType>
+  extends TextareaStyleProps,
+    ViewProps {
   /**
    * Specifies permissions for browser UA to autocomplete field
    * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
    */
   autoComplete?: string;
-
-  /**
-   * If checked is provided, this will be a controlled checkbox or radio
-   */
-  checked?: boolean;
-
-  /**
-   * Use this to initialize an uncontrolled checkbox or radio
-   */
-  defaultChecked?: boolean;
 
   /**
    * Use this to provide a default value for an uncontrolled field
@@ -42,13 +27,6 @@ export interface InputProps<ElementType>
    * Indicates that Field is in error state
    */
   hasError?: boolean;
-
-  /**
-   * Provides hint for virtual keyboard shown
-   * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
-   * @default: "text"
-   */
-  inputMode?: InputMode;
 
   /**
    *  Determines whether field should be disabled
@@ -69,18 +47,23 @@ export interface InputProps<ElementType>
   isRequired?: boolean;
 
   /**
+   * Text contents maximum length
+   */
+  maxLength?: number;
+
+  /**
    * Name of the field. Submitted with the form as part of a name/value pair.
    */
   name?: string;
 
   /**
-   * Input change event handler
+   * Textarea change event handler
    */
   onChange?: React.ChangeEventHandler<ElementType>;
   /**
    *
    */
-  onInput?: React.ChangeEventHandler<ElementType>;
+  onTextarea?: React.ChangeEventHandler<ElementType>;
 
   /**
    * Copy clipboard event
@@ -119,12 +102,6 @@ export interface InputProps<ElementType>
    * Changes the font-size, padding, and height of the field.
    */
   size?: Sizes;
-
-  /**
-   * Input type
-   * @default "text"
-   */
-  type?: string;
 
   /**
    * If value is provided, this will be a controlled field

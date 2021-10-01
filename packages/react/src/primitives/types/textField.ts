@@ -3,6 +3,7 @@ import * as React from 'react';
 import { FlexStyleProps } from './flex';
 import { InputProps } from './input';
 import { FieldProps } from './field';
+import { TextareaProps } from './textarea';
 
 export type TextFieldType =
   | 'email'
@@ -14,7 +15,7 @@ export type TextFieldType =
   | 'url'
   | string;
 
-export interface TextFieldProps extends InputProps, FieldProps, FlexStyleProps {
+export interface TextFieldOptions extends FieldProps, FlexStyleProps {
   /**
    * Input field type
    */
@@ -40,3 +41,20 @@ export interface TextFieldProps extends InputProps, FieldProps, FlexStyleProps {
    */
   innerEndComponent?: React.ReactNode;
 }
+
+export interface TextInputFieldProps<ElementType>
+  extends TextFieldOptions,
+    InputProps<ElementType> {
+  multiline: false;
+}
+
+export interface TextAreaFieldProps<ElementType>
+  extends TextFieldOptions,
+    TextareaProps<ElementType> {
+  multiline: true;
+}
+
+export type TextFieldProps<ElementType> =
+  ElementType extends HTMLTextAreaElement
+    ? TextAreaFieldProps<HTMLTextAreaElement>
+    : TextInputFieldProps<HTMLInputElement>;
