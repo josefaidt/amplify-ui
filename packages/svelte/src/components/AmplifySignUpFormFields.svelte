@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { authState } from '$lib/components/authStore';
+  import { authState } from './authStore';
   import {
     authInputAttributes,
     LoginMechanism,

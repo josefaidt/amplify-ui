@@ -1,7 +1,7 @@
 <script lang="ts">
   import AmplifyFormField from './primitives/AmplifyFormField.svelte';
   import { onMount } from 'svelte';
-  import { authState } from '$lib/components/authStore';
+  import { authState } from './authStore';
   import { getAliasInfoFromContext } from '@aws-amplify/ui';
   export let name: string = 'username';
   export let disabled: boolean = false;

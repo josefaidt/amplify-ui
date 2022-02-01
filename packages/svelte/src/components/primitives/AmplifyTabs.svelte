@@ -1,7 +1,7 @@
 <script lang="ts">
   import SignIn from '../SignIn.svelte';
   import SignUp from '../SignUp.svelte';
-  import { toSignIn, toSignUp } from '$lib/components/authStore';
+  import { toSignIn, toSignUp } from '../authStore';
 
   //tab list
   let tabs = [
