@@ -18,6 +18,12 @@ const config = {
     package: {
       dir: 'dist',
     },
+    files: {
+      assets: 'demo/static',
+      lib: 'src',
+      routes: 'demo/routes',
+      template: 'demo/app.html',
+    },
 
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',

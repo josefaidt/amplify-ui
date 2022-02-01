@@ -5,7 +5,7 @@
     error,
     isPending,
     hasValidationErrors,
-  } from '$lib/components/authStore';
+  } from './authStore';
   import AmplifyError from './primitives/AmplifyError.svelte';
   import AmplifyButton from './primitives/AmplifyButton.svelte';
   import AmplifySignUpFormFields from './AmplifySignUpFormFields.svelte';

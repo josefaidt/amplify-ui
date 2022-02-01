@@ -7,7 +7,7 @@
     resendCode,
     error,
     isPending,
-  } from '$lib/components/authStore';
+  } from './authStore';
   import { translate } from '@aws-amplify/ui';
   import AmplifyFormField from './primitives/AmplifyFormField.svelte';
   import AmplifyButton from './primitives/AmplifyButton.svelte';

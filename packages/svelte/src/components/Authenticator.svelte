@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
-  import { setupMachine, route, toSignIn } from '$lib/components/authStore';
+  import { setupMachine, route, toSignIn } from './authStore';
   import AmplifyTabs from './primitives/AmplifyTabs.svelte';
   import AmplifyTabItem from './primitives/AmplifyTabItem.svelte';
   import ConfirmSignUp from './ConfirmSignUp.svelte';
